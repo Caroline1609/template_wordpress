@@ -90,8 +90,7 @@ get_footer();
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-
-
+    
 
 <main>
     <!-- FIN HEADER -->
@@ -105,5 +104,15 @@ get_footer();
 </body>
 </html>
 ```
+
 5. Activez votre thème dans l'interface d'administration de WordPress : Apparence > Thèmes > Activer "Mon Thème".
+
+6. function.php : Ce fichier est utilisé pour ajouter des fonctionnalités personnalisées à votre thème.
+
+
+
+## Extensions utiles
+
+- Faker-Press : Permet de générer du contenu factice pour tester votre thème.
+
 
