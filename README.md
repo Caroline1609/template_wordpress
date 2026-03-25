@@ -33,7 +33,7 @@ Dans le navigateur Web :
 
 Il faut ce connecter avec le nom d'utilisateur et le mot de passe choisi précédement pour accéder à l'interface d'administration de WordPress.
 
-### Creation d'un thème WordPress
+### Création d'un thème WordPress
 
 1. Allez dans le dossier `wp-content/themes` et créez un nouveau dossier pour votre thème. Par exemple, `mon-theme`.
 
@@ -91,10 +91,10 @@ get_footer();
     <?php wp_body_open(); ?>
 
     
-
 <main>
     <!-- FIN HEADER -->
 ```
+
 
 4. Créez un fichier `footer.php` avec le contenu suivant :
 ```php
@@ -107,12 +107,42 @@ get_footer();
 
 5. Activez votre thème dans l'interface d'administration de WordPress : Apparence > Thèmes > Activer "Mon Thème".
 
-6. function.php : Ce fichier est utilisé pour ajouter des fonctionnalités personnalisées à votre thème.
+6. functions.php (NE PAS OUBLIEZ LE "S"): Ce fichier est utilisé pour ajouter des fonctionnalités personnalisées à votre thème.
+
+- Exemple de contenu pour `functions.php` :
+```php
+<?php
+
+function cb_add_thumbnails() {
+    add_theme_support('post-thumbnails');
+}
+
+add_action('after_setup_theme', 'cb_add_thumbnails'); // Permet d'ajouter la prise en charge des images à la une (thumbnails) dans votre thème.
+
+
+function cb_menu_setup() {
+    register_nav_menus([
+        'menuPrincipal' => 'Mon menu'
+    ]);
+}
+
+add_action('init', 'cb_menu_setup'); // Permet d'enregistrer un emplacement de menu personnalisé dans votre thème.
+
+```
+
+
+
+
+
+
+
+
 
 
 
 ## Extensions utiles
 
-- Faker-Press : Permet de générer du contenu factice pour tester votre thème.
+- **Faker-Press** : Permet de générer du contenu factice pour tester votre thème.
+- **Classic Editor** : Permet d'utiliser l'éditeur classique de WordPress au lieu de Gutenberg.
 
 

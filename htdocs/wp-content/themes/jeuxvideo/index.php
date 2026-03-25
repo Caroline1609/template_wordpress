@@ -14,7 +14,7 @@ if (have_posts()): // si l'url appelé correspond à du contenu  (article, page,
                 <?php the_post_thumbnail('thumbnail'); ?>
                 <aside>
                     écrit par <?php the_author(); ?>
-                    le <?php echo get_the_date(); ?>
+                    le <?php echo get_the_date(); ?>.
                 </aside>
             </header>
             <section>

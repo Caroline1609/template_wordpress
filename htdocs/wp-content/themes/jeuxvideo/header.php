@@ -12,7 +12,13 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-
+    <header>
+        <div class="site-navigation">
+            <nav>
+                <?php wp_nav_menu(['theme_location' => 'menuPrincipal']); ?> 
+            </nav>
+        </div>
+    </header>
 
     <main>
         <!-- FIN HEADER -->
