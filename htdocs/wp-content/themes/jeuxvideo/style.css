@@ -3,23 +3,41 @@
  * Author: Caroline
  */
 
+:root {
+    --fond_card: #f2d7eeff;
+    --thistle: #d3bcc0ff;
+    --dusty-lavender: #a5668bff;
+    --title: #69306dff;
+    --deep-navy: #0e103dff;
+
+    
+    --arrondi: 25px
 
 
-body{
+}
+
+
+
+body {
     margin: 0;
     padding: 0;
 }
 
-article {
-    width: 350px;
-    border-radius: 25px;
-    overflow: hidden;
-    background-color: #eee8f3;
 
+
+
+
+main .archive {
+    width: 350px;
+    border-radius: var(--arrondi);
+    overflow: hidden;
+    background-color: var(--fond_card);
     
+
+
 }
 
-main{
+main .card {
     display: flex;
     gap: 5rem;
     flex-wrap: wrap;
@@ -28,21 +46,21 @@ main{
 
 }
 
-section{
+section {
     padding: 19px;
 }
 
-h2{
+h2 {
     margin: 0;
 }
 
-a{
+a {
     text-decoration: none;
-    color: black;
+    color: var(--title);
 }
 
 .conteneur_img {
-    position: relative; 
+    position: relative;
     height: 220px;
 
 }
@@ -59,7 +77,7 @@ a{
     top: 15px;
     left: 15px;
     padding: 6px 12px;
-    border-radius: 2px;
+    border-radius: var(--arrondi);
     background-color: white;
     border-radius: 15px;
 }
