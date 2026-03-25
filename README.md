@@ -20,10 +20,10 @@ docker compose up -d
 ### Accès à l'interface d'administration de WordPress
 
 Dans le navigateur Web :
-`Localhost:[numéro du port]/wp-admin`
+`Localhost:[numéro du port]/wp-admin` ou tout simplement aller sur Docker pour l'ouvrir via `le conteneur`.
 
 
-### première connexion
+### Première connexion
 - Choisir la langue
 - Choisir un nom de site (Possibilité de le modifier plus tard)
 - Choisir un nom d'utilisateur
@@ -56,7 +56,7 @@ if (have_posts()): // si l'url appelé correspond à du contenu  (article, page,
     while (have_posts()): // pour chaque élément trouvé... 
         the_post(); // on charge les données du contenu
         ?>
-
+        
         <article class="montheme-article">
             <?php the_excerpt(); // extrait du post ?>
         </article>
@@ -73,8 +73,14 @@ endif;
 get_footer();
 ?>
 ```
+Il est possible de le personnalisé comme on veut.
 
-3. Créez un fichier `header.php` avec le contenu suivant :
+3. Activez votre thème dans l'interface d'administration de WordPress : Apparence > Thèmes > Activer "Mon Thème".
+
+Attention, pour que le thème soit reconnu, il faut que le nom du dossier et le nom du thème dans le fichier `style.css` soient identiques.
+
+
+4. Créez un fichier `header.php` avec le contenu suivant :
 ```php
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -105,7 +111,7 @@ get_footer();
 </html>
 ```
 
-5. Activez votre thème dans l'interface d'administration de WordPress : Apparence > Thèmes > Activer "Mon Thème".
+
 
 6. functions.php (NE PAS OUBLIEZ LE "S"): Ce fichier est utilisé pour ajouter des fonctionnalités personnalisées à votre thème.
 
