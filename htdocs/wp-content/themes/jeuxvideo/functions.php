@@ -14,3 +14,14 @@ function cb_menu_setup() {
 }
 
 add_action('init', 'cb_menu_setup');
+
+function cb_sidebar_setup() {
+    register_sidebar([
+        'id' => 'principal',
+        'name' => 'Sidebar Principale',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>'
+    ]);
+}
+
+add_action('widgets_init', 'cb_sidebar_setup');

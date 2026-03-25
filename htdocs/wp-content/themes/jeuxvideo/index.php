@@ -10,15 +10,30 @@ if (have_posts()): // si l'url appelé correspond à du contenu  (article, page,
 
         <article>
             <header>
-                <h2><?php the_title(); ?></h2>
-                <?php the_post_thumbnail('thumbnail'); ?>
-                <aside>
-                    écrit par <?php the_author(); ?>
-                    le <?php echo get_the_date(); ?>.
-                </aside>
+                <div class="conteneur_img">
+
+                    <?php if (has_post_thumbnail()) {
+
+                        the_post_thumbnail('thumbnail');
+                    } else {
+                        echo '<img src="' . get_template_directory_uri() . '/1714.jpg" />';
+                    }
+
+                    ?>
+
+                    <span>
+                        <?php echo get_the_date(); ?>
+                    </span>
+
+                </div>
             </header>
             <section>
-                <?php the_content(); ?>
+                <h2>
+                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                        <?php the_title(); ?>
+                    </a>
+                </h2>
+                <p><?php the_excerpt(); ?></p>
             </section>
 
         </article>
