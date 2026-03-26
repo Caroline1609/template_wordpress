@@ -136,9 +136,60 @@ add_action('init', 'cb_menu_setup'); // Permet d'enregistrer un emplacement de m
 
 ```
 
+## Création d'un menu personnalisé
 
+1. Dans le fichier `functions.php`, ajoutez le code suivant pour enregistrer un emplacement de menu personnalisé :
 
+```php
+function cb_menu_setup() {
+    register_nav_menus([
+        'menuPrincipal' => 'Mon menu'
+    ]);
+}
+add_action('init', 'cb_menu_setup');
+```
 
+2. Ensuite, dans le fichier `header.php`, ajoutez le code suivant pour afficher le menu dans votre thème :
+
+```html, php
+<div class="site-navigation">
+    <nav>
+        <?php
+        wp_nav_menu(['theme_location' => 'menuPrincipal']); ?> 
+    </nav>
+</div>
+```
+3. Allez dans l'interface d'administration de WordPress : Apparence > Menus, créez un nouveau menu, ajoutez des éléments à votre menu et assignez-le à l'emplacement "Mon menu".
+
+## Création d'une sidebar personnalisée
+1. Dans le fichier `functions.php`, ajoutez le code suivant pour enregistrer une sidebar personnalisée :
+
+```php, html
+function cb_widgets_setup() {
+    register_sidebar([
+        'id' => 'principal',
+        'name' => 'Sidebar Principale',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>'
+    ]);
+add_action('widgets_init', 'cb_widgets_setup');
+```
+
+2. Ensuite, dans le fichier `sidebar.php`, ajoutez le code suivant pour afficher la sidebar dans votre thème :
+
+```html, php
+<aside class="site-aside">
+        <!-- SIDEBAR -->
+        <?php dynamic_sidebar('principal'); ?>
+</aside>
+```
+3. Allez dans l'interface d'administration de WordPress : Apparence > Widgets, ajoutez des widgets à votre sidebar "Sidebar Principale".
+
+## La template hierarchy
+
+WordPress utilise un système de hiérarchie de templates pour déterminer quel fichier de template utiliser pour afficher une page spécifique. Voici les fichiers de template les plus couramment utilisés, classés par ordre de priorité :
+
+<img src="template.jpg" >
 
 
 
